@@ -11,7 +11,7 @@ add_newline = true
 palette     = "catppuccin_mocha"
 
 # ───── Prompt layout ──────────────────────────────────────────────────────────
-format = """
+format = """\
 $username\
 $hostname\
 $directory\
@@ -19,9 +19,7 @@ $git_branch$git_state$git_status$git_metrics\
 $package\
 $nodejs$bun$deno$python$rust$golang$java\
 $docker_context$kubernetes$terraform$aws$gcloud\
-$memory_usage$battery\
-$line_break\
-$time $shlvl$sudo$status$character"""
+$sudo$status$character"""
 
 right_format = """$cmd_duration"""
 
@@ -95,13 +93,13 @@ home_symbol        = "~"
 format             = "[$path]($style)[$read_only]($read_only_style) "
 
 [directory.substitutions]
-"Documents" = "󰈙 "
-"Downloads" = " "
-"Music"     = "󰝚 "
-"Pictures"  = " "
-"Projects"  = "󰲋 "
-"Developer" = "󰲋 "
-"workspace" = "󰲋 "
+"Documents" = "󰈙 Documents"
+"Downloads" = "󰉍 Downloads"
+"Music"     = "󰝚 Music"
+"Pictures"  = "󰉏 Pictures"
+"Projects"  = "󰲋 Projects"
+"Developer" = "󰲋 Developer"
+"workspace" = "󰲋 workspace"
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
