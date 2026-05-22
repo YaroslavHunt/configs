@@ -165,7 +165,7 @@ symbol = " "
 
 # ───── JavaScript / TypeScript runtimes ───────────────────────────────────────
 [nodejs]
-symbol            = " "
+symbol            = "󰎙"
 style             = "bold green"
 format            = "[via](text) [$symbol($version )]($style)"
 detect_files      = ["package.json", ".nvmrc", ".node-version"]
