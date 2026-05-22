@@ -123,7 +123,7 @@ zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
 source <(carapace _carapace)
 
 # -----------------------------------------------------------------------------
-# package.json scripts completion
+# package.json scripts completion (Tab) — overrides carapace for Node managers
 # -----------------------------------------------------------------------------
 _pkg_scripts() {
   [[ -f package.json ]] || return 1
@@ -132,16 +132,10 @@ _pkg_scripts() {
     try {
       const s = require("./package.json").scripts || {};
       for (const [k, v] of Object.entries(s)) {
-        console.log(k + ":" + v.replace(/:/g, "\\:"));
+        console.log(k.replace(/:/g, "\\:") + ":" + v);
       }
     } catch (e) {}
   ' 2>/dev/null)}")
   [[ ${#scripts[@]} -gt 0 ]] && _describe 'script' scripts
 }
-
-# Register for all known Node package managers
-# To add a new one in the future, just append it to this list:
-for _pm in yarn npm pnpm bun; do
-  compdef _pkg_scripts $_pm
-done
-unset _pm
+compdef _pkg_scripts yarn npm pnpm bun
