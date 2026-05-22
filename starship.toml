@@ -19,10 +19,10 @@ $git_branch$git_state$git_status$git_metrics\
 $package\
 $nodejs$bun$deno$python$rust$golang$java\
 $docker_context$kubernetes$terraform$aws$gcloud\
+$fill\
 $cmd_duration\
+$line_break\
 $sudo$status$character"""
-
-right_format = ""
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -460,10 +460,13 @@ symbol = "󰛳 "                          # MD network
 # ═══════════════════════════════════════════════════════════════════════════════
 
 [cmd_duration]
-min_time          = 0 
-format            = " [$duration]($style) "
-style             = "yellow"
+min_time          = 500
+format            = "[$duration]($style)"
+style             = "overlay1"
 show_milliseconds = true
+
+[fill]
+symbol = " "
 
 [status]
 disabled              = false
