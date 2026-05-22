@@ -2,8 +2,8 @@
 
 # ═══════════════════════════════════════════════════════════════════════════════
 #  Palette : Catppuccin Mocha
-#  Layout  : two-line, conditional modules, right-aligned time
-#  Symbols : Nerd Font glyphs (all preserved from the official preset)
+#  Layout  : single-line, conditional modules, right-aligned cmd duration
+#  Symbols : Material Design Nerd Font glyphs (󰀀-󱿿 range) — render reliably
 # ═══════════════════════════════════════════════════════════════════════════════
 
 # ───── Global settings ────────────────────────────────────────────────────────
@@ -78,16 +78,16 @@ format      = "[$user]($style)"
 
 [hostname]
 ssh_only   = true                    # show only in SSH session
-ssh_symbol = "  "
+ssh_symbol = " 󰣀 "                    # MD ssh
 style      = "bold green dimmed"
 format     = "[@$hostname$ssh_symbol]($style) "
 
 [directory]
 style              = "bold lavender"
-read_only          = " 󰌾"
+read_only          = " 󰌾"             # MD lock
 read_only_style    = "red"
 truncation_length  = 3
-truncation_symbol  = "…/"
+truncation_symbol  = "⋯/"             # mid-line three dots
 truncate_to_repo   = true
 home_symbol        = "~"
 format             = "[$path]($style)[$read_only]($read_only_style) "
@@ -107,7 +107,7 @@ format             = "[$path]($style)[$read_only]($read_only_style) "
 # ═══════════════════════════════════════════════════════════════════════════════
 
 [git_branch]
-symbol = " "
+symbol = "󰘬 "                          # MD source-branch
 style  = "bold mauve"
 format = "[on](text) [$symbol$branch]($style) "
 
@@ -144,201 +144,201 @@ format              = '([+$added]($added_style) )([-$deleted]($deleted_style) )'
 only_nonzero_diffs  = true
 
 [git_commit]
-tag_symbol   = "  "
+tag_symbol   = " 󰓹 "                   # MD tag
 tag_disabled = false
 
 [hg_branch]
-symbol = " "
+symbol = "󰘬 "                          # reuse source-branch
 
 [fossil_branch]
-symbol = " "
+symbol = "󰘬 "
 
 [pijul_channel]
-symbol = " "
+symbol = "󰘬 "
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
 #  RUNTIMES & LANGUAGES
 #  Modules auto-detect via project files (package.json, Cargo.toml, etc.)
-#  All symbols are Nerd Font glyphs preserved from the official preset.
+#  All symbols are Material Design Nerd Font glyphs.
 # ═══════════════════════════════════════════════════════════════════════════════
 
 # ───── JavaScript / TypeScript runtimes ───────────────────────────────────────
 [nodejs]
-symbol            = "󰎙"
+symbol            = "󰎙 "               # MD nodejs
 style             = "bold green"
-format            = "[$symbol ($version )]($style)"
+format            = "[via](text) [$symbol($version )]($style)"
 detect_files      = ["package.json", ".nvmrc", ".node-version"]
 detect_folders    = ["node_modules"]
 detect_extensions = ["js", "mjs", "cjs", "ts", "mts", "cts"]
 
 [bun]
-symbol = " "
+symbol = "󰟯 "                          # MD food-croissant (closest "bun")
 style  = "bold peach"
 format = "[via](text) [$symbol($version )]($style)"
 
 [deno]
-symbol = " "
+symbol = "󰣘 "                          # MD dinosaur
 style  = "bold teal"
 format = "[via](text) [$symbol($version )]($style)"
 
 # ───── Primary backend languages ──────────────────────────────────────────────
 [python]
-symbol = " "
+symbol = "󰌠 "                          # MD language-python
 style  = "bold yellow"
 format = '[via](text) [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 
 [rust]
-symbol = "󱘗 "
+symbol = "󱘗 "                          # MD language-rust
 style  = "bold red"
 format = "[via](text) [$symbol($version )]($style)"
 
 [golang]
-symbol = " "
+symbol = "󰟓 "                          # MD language-go
 style  = "bold sky"
 format = "[via](text) [$symbol($version )]($style)"
 
 [java]
-symbol = " "
+symbol = "󰬷 "                          # MD language-java
 style  = "bold red"
 format = "[via](text) [$symbol($version )]($style)"
 
 [kotlin]
-symbol = " "
+symbol = "󱈙 "                          # MD language-kotlin
 
 [scala]
-symbol = " "
+symbol = "󰈮 "                          # MD file-code (generic)
 
 [ruby]
-symbol = " "
+symbol = "󰴭 "                          # MD language-ruby
 
 [php]
-symbol = " "
+symbol = "󰌟 "                          # MD language-php
 
 [perl]
-symbol = " "
+symbol = "󰈮 "
 
 [lua]
-symbol = " "
+symbol = "󰢱 "                          # MD language-lua
 
 [c]
-symbol = " "
+symbol = "󰙱 "                          # MD language-c
 
 [cpp]
-symbol = " "
+symbol = "󰙲 "                          # MD language-cpp
 
 [dotnet]
-symbol = " "
+symbol = "󰪮 "                          # MD language-csharp
 
 [swift]
-symbol = " "
+symbol = "󰛥 "                          # MD language-swift
 
 [dart]
-symbol = " "
+symbol = "󰪥 "                          # MD dart
 
 [elixir]
-symbol = " "
+symbol = "󱂈 "                          # MD potion
 
 [erlang]
-symbol = " "
+symbol = "󰈮 "
 
 [haskell]
-symbol = " "
+symbol = "󰲒 "                          # MD language-haskell
 
 [ocaml]
-symbol = " "
+symbol = "󰈮 "
 
 [crystal]
-symbol = " "
+symbol = "󰮯 "
 
 [julia]
-symbol = " "
+symbol = "󰈮 "
 
 [nim]
-symbol = " "
+symbol = "󰈮 "
 
 [zig]
-symbol = " "
+symbol = "󰈮 "
 
 # ───── Niche / emerging languages ─────────────────────────────────────────────
 [elm]
-symbol = " "
+symbol = "󰈮 "
 
 [fennel]
-symbol = " "
+symbol = "󰈮 "
 
 [fortran]
-symbol = " "
+symbol = "󰈮 "
 
 [cobol]
-symbol = " "
+symbol = "󰈮 "
 
 [gleam]
-symbol = " "
+symbol = "󰈮 "
 
 [haxe]
-symbol = " "
+symbol = "󰈮 "
 
 [vlang]
-symbol = " "
+symbol = "󰈮 "
 
 [purescript]
-symbol = " "
+symbol = "󰈮 "
 
 [raku]
-symbol = "󱖊 "
+symbol = "󱖊 "                          # MD raku (preserved)
 
 [red]
-symbol = "󱍼 "
+symbol = "󱍼 "                          # MD red (preserved)
 
 [rlang]
-symbol = "󰟔 "
+symbol = "󰟔 "                          # MD R
 
 [mojo]
-symbol = "󰈸 "
+symbol = "󰈸 "                          # MD fire
 
 [odin]
-symbol = "󰟢 "
+symbol = "󰟢 "                          # MD owl
 
 [opa]
-symbol = " "
+symbol = "󰈮 "
 
 [solidity]
-symbol = " "
+symbol = "󰈮 "
 
 [typst]
-symbol = " "
+symbol = "󰈮 "
 
 # ───── Build tools, package managers, frameworks ──────────────────────────────
 [package]
-symbol           = "󰏗 "
+symbol           = "󰏗 "                # MD package
 style            = "bold peach"
 format           = "[is](text) [$symbol$version]($style) "
 display_private  = false
 
 [gradle]
-symbol = " "
+symbol = "󰈮 "
 
 [maven]
-symbol = " "
+symbol = "󰈮 "
 
 [cmake]
-symbol = " "
+symbol = "󰬢 "                          # MD construction-cone
 
 [meson]
-symbol = "󰔷 "
+symbol = "󰔷 "                          # MD triangle-outline (preserved)
 
 [xmake]
-symbol = " "
+symbol = "󰈮 "
 
 [conda]
-symbol = " "
+symbol = "󱔎 "                          # MD snake
 
 [pixi]
-symbol = "󰏗 "
+symbol = "󰏗 "                          # reuse package
 
 [buf]
-symbol = " "
+symbol = "󰈮 "
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -346,7 +346,7 @@ symbol = " "
 # ═══════════════════════════════════════════════════════════════════════════════
 
 [aws]
-symbol   = "󰸏 "
+symbol   = "󰸏 "                        # MD aws
 style    = "bold peach"
 disabled = true
 # AWS region/profile auto-detect from ~/.aws/config triggers this module
@@ -369,17 +369,17 @@ ap-northeast-1 = "nrt"
 default = ""
 
 [gcloud]
-symbol   = "󱇶 "
+symbol   = "󱇶 "                        # MD google-cloud
 style    = "bold blue"
-disabled = true                      # enable when working with GCP
+disabled = true                        # enable when working with GCP
 format   = '[on](text) [$symbol$account(@$domain)(\($region\))]($style) '
 
 [azure]
-symbol   = " "
+symbol   = "󰠅 "                        # MD microsoft-azure
 disabled = true
 
 [openstack]
-symbol = " "
+symbol = "󰈮 "
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -387,7 +387,7 @@ symbol = " "
 # ═══════════════════════════════════════════════════════════════════════════════
 
 [docker_context]
-symbol          = " "
+symbol          = "󰡨 "                 # MD docker
 style           = "bold blue"
 format          = "[via](text) [$symbol$context]($style) "
 only_with_files = true
@@ -402,7 +402,7 @@ detect_files    = [
 
 [kubernetes]
 disabled       = false
-symbol         = "󱃾 "
+symbol         = "󱃾 "                  # MD kubernetes
 style          = "bold sapphire"
 format         = '[on](text) [$symbol$context( \($namespace\))]($style) '
 detect_files   = [
@@ -416,42 +416,42 @@ detect_files   = [
 detect_folders = ["k8s", "kubernetes", "helm", ".kube"]
 
 [terraform]
-symbol = "󱁢 "
+symbol = "󱁢 "                          # MD terraform
 style  = "bold mauve"
 format = "[via](text) [$symbol$workspace]($style) "
 
 [helm]
-symbol = " "
+symbol = "󰠳 "                          # MD ship-wheel
 
 [pulumi]
-symbol = " "
+symbol = "󰈮 "
 
 [vagrant]
-symbol = " "
+symbol = "󰈮 "
 
 [singularity]
-symbol = " "
+symbol = "󰈮 "
 
 [container]
-symbol = " "
+symbol = "󰡨 "                          # reuse docker
 
 [nix_shell]
-symbol = " "
+symbol = "󱄅 "                          # MD nix
 
 [guix_shell]
-symbol = " "
+symbol = "󰈮 "
 
 [spack]
-symbol = " "
+symbol = "󰈮 "
 
 [direnv]
-symbol = " "
+symbol = "󰈮 "
 
 [nats]
-symbol = " "
+symbol = "󰈮 "
 
 [netns]
-symbol = "󰛳 "
+symbol = "󰛳 "                          # MD network
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -459,7 +459,7 @@ symbol = "󰛳 "
 # ═══════════════════════════════════════════════════════════════════════════════
 
 [cmd_duration]
-min_time          = 2_000            # threshold in ms
+min_time          = 2_000              # threshold in ms
 format            = "[took $duration]($style)"
 style             = "yellow"
 show_milliseconds = false
@@ -478,38 +478,38 @@ recognize_signal_code = true
 map_symbol            = true
 
 [time]
-disabled    = false
+disabled    = false                    # currently not in $format — kept for easy re-enable
 format      = '[$time]($style)'
 style       = "overlay1"
 time_format = "%H:%M"
 
 [shlvl]
 disabled  = false
-symbol    = "󰹍 "
-threshold = 2                        # show only inside nested shells
+symbol    = "󰹍 "                       # MD shell-level
+threshold = 2                          # show only inside nested shells
 format    = '[$symbol$shlvl]($style) '
 style     = "bold yellow"
 
 [sudo]
 disabled = false
-symbol   = " "
+symbol   = "󰒃 "                        # MD shield-key
 format   = "[as $symbol]($style) "
 style    = "bold red"
 
 [memory_usage]
 disabled  = false
-symbol    = "󰍛 "
-threshold = 75                       # show only when RAM > 75%
+symbol    = "󰍛 "                       # MD memory
+threshold = 75                         # show only when RAM > 75%
 format    = "via [$symbol $ram]($style) "
 style     = "bold red dimmed"
 
 [battery]
 disabled           = false
-full_symbol        = "󰁹 "
-charging_symbol    = "󰂄 "
-discharging_symbol = "󰂃 "
-unknown_symbol     = "󰂑 "
-empty_symbol       = "󰂎 "
+full_symbol        = "󰁹 "              # MD battery
+charging_symbol    = "󰂄 "              # MD battery-charging
+discharging_symbol = "󰂃 "              # MD battery-alert
+unknown_symbol     = "󰂑 "              # MD battery-unknown
+empty_symbol       = "󰂎 "              # MD battery-outline
 
 [[battery.display]]
 threshold = 20
@@ -523,6 +523,8 @@ style     = "bold yellow"
 # ═══════════════════════════════════════════════════════════════════════════════
 #  OPERATING SYSTEM
 #  Set [os].disabled = false to show an OS glyph at the start of the prompt.
+#  Then add `$os` to `format` above. MD glyphs where available; many distros
+#  only have devicon range icons which may not render in some Nerd Fonts.
 # ═══════════════════════════════════════════════════════════════════════════════
 
 [os]
@@ -531,61 +533,61 @@ style    = "bold subtext0"
 format   = "[$symbol]($style)"
 
 [os.symbols]
-AIX              = " "
-AlmaLinux        = " "
-Alpaquita        = " "
-Alpine           = " "
-ALTLinux         = " "
-Amazon           = " "
-Android          = " "
-AOSC             = " "
-Arch             = " "
-Artix            = " "
-Bluefin          = " "
-CachyOS          = " "
-CentOS           = " "
-Debian           = " "
-DragonFly        = " "
-Elementary       = " "
-Emscripten       = " "
-EndeavourOS      = " "
-Fedora           = " "
-FreeBSD          = " "
-Garuda           = " "
-Gentoo           = " "
+AIX              = "󰈮 "
+AlmaLinux        = "󰣛 "
+Alpaquita        = "󰈮 "
+Alpine           = "󰂚 "
+ALTLinux         = "󰈮 "
+Amazon           = "󰸏 "
+Android          = "󰀲 "
+AOSC             = "󰈮 "
+Arch             = "󰣇 "
+Artix            = "󰣇 "
+Bluefin          = "󰈮 "
+CachyOS          = "󰈮 "
+CentOS           = "󱄛 "
+Debian           = "󰣚 "
+DragonFly        = "󰈮 "
+Elementary       = "󰈮 "
+Emscripten       = "󰈮 "
+EndeavourOS      = "󰣖 "
+Fedora           = "󰣛 "
+FreeBSD          = "󰣠 "
+Garuda           = "󰈮 "
+Gentoo           = "󰣨 "
 HardenedBSD      = "󰞌 "
-Illumos          = " "
-InstantOS        = " "
+Illumos          = "󰈮 "
+InstantOS        = "󰈮 "
 Ios              = "󰀷 "
-Kali             = " "
-Linux            = " "
-Mabox            = " "
-Macos            = " "
-Manjaro          = " "
-Mariner          = " "
-MidnightBSD      = " "
-Mint             = " "
-NetBSD           = " "
-NixOS            = " "
-Nobara           = " "
-OpenBSD          = " "
-OpenCloudOS      = " "
-openEuler        = " "
-openSUSE         = " "
+Kali             = "󰣲 "
+Linux            = "󰌽 "
+Mabox            = "󰈮 "
+Macos            = "󰀵 "
+Manjaro          = "󱘷 "
+Mariner          = "󰈮 "
+MidnightBSD      = "󰈮 "
+Mint             = "󰣭 "
+NetBSD           = "󰈮 "
+NixOS            = "󱄅 "
+Nobara           = "󰈮 "
+OpenBSD          = "󰈮 "
+OpenCloudOS      = "󰈮 "
+openEuler        = "󰈮 "
+openSUSE         = "󰣸 "
 OracleLinux      = "󰺡 "
-PikaOS           = " "
-Pop              = " "
-Raspbian         = " "
+PikaOS           = "󰈮 "
+Pop              = "󰈮 "
+Raspbian         = "󰐿 "
 Redhat           = "󱄛 "
 RedHatEnterprise = "󱄛 "
 Redox            = "󰀘 "
-RockyLinux       = " "
-Solus            = " "
-SUSE             = " "
-Ubuntu           = " "
-Ultramarine      = " "
-Unknown          = " "
-Uos              = " "
-Void             = " "
+RockyLinux       = "󰂹 "
+Solus            = "󰈮 "
+SUSE             = "󰣸 "
+Ubuntu           = "󰕈 "
+Ultramarine      = "󰈮 "
+Unknown          = "󰟀 "
+Uos              = "󰈮 "
+Void             = "󰈮 "
 Windows          = "󰍲 "
-Zorin            = " "
+Zorin            = "󰈮 "
