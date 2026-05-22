@@ -38,6 +38,8 @@ plugins=(
   copypath                  # copy current path to clipboard
   copyfile                  # copy file contents to clipboard
   web-search                # `google`, `ddg`, ... straight from the terminal
+  zsh-completions           # extra completion definitions
+  fzf-tab                   # fuzzy interactive Tab menu
   zsh-autosuggestions       # fish-like inline suggestions from history
   zsh-syntax-highlighting   # colorize commands as you type
 )
@@ -60,12 +62,24 @@ setopt EXTENDED_HISTORY     # save timestamp + duration for each entry
 # Completion
 # -----------------------------------------------------------------------------
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"  # colorize matches
-zstyle ':completion:*' menu select                        # arrow-key menu
+# zstyle ':completion:*' menu select                     # arrow-key menu
 
 # -----------------------------------------------------------------------------
 # Load Oh My Zsh (must come AFTER plugin/history/completion config)
 # -----------------------------------------------------------------------------
 source "$ZSH/oh-my-zsh.sh"
+
+# -----------------------------------------------------------------------------
+# fzf-tab configuration
+# -----------------------------------------------------------------------------
+# Disable default zsh completion menu — let fzf-tab handle it
+zstyle ':completion:*' menu no
+# Preview directory contents with `eza` when completing `cd`
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always --icons $realpath'
+# Switch between completion groups with `<` and `>`
+zstyle ':fzf-tab:*' switch-group '<' '>'
+# Use tmux popup if inside tmux, else regular fzf
+zstyle ':fzf-tab:*' fzf-flags --height=40% --layout=reverse --border
 
 # -----------------------------------------------------------------------------
 # Aliases
@@ -94,3 +108,7 @@ eval "$(fnm env --use-on-cd --shell zsh --version-file-strategy=recursive --log-
 
 # corepack — manages pnpm/yarn versions shipped with Node
 command -v corepack >/dev/null && corepack enable >/dev/null 2>&1
+
+# fzf key bindings: Ctrl-R (history), Ctrl-T (files), Alt-C (cd)
+source /usr/share/doc/fzf/examples/key-bindings.zsh 2>/dev/null
+source /usr/share/doc/fzf/examples/completion.zsh 2>/dev/null
