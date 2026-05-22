@@ -139,3 +139,27 @@ _pkg_scripts() {
   [[ ${#scripts[@]} -gt 0 ]] && _describe 'script' scripts
 }
 compdef _pkg_scripts yarn npm pnpm bun
+
+# -----------------------------------------------------------------------------
+# Command duration — printed on its own line, right-aligned, subtle gray.
+# Replaces starship's [cmd_duration] / right_format (which broke the cursor).
+# -----------------------------------------------------------------------------
+zmodload zsh/datetime
+typeset -g _CMD_START
+
+_cmd_duration_start() { _CMD_START=$EPOCHREALTIME }
+
+_cmd_duration_print() {
+  [[ -z $_CMD_START ]] && return
+  local ms=$(( (EPOCHREALTIME - _CMD_START) * 1000 ))
+  ms=${ms%.*}                                    # integer milliseconds
+  unset _CMD_START
+  (( ms < 0 )) && return                       # threshold: ignore < 0 ms
+
+  # Catppuccin overlay1 (#7f849c), right-aligned to terminal width
+  printf '\e[38;2;127;132;156m%*s\e[0m\n' "$COLUMNS" "${ms}ms"
+}
+
+autoload -Uz add-zsh-hook
+add-zsh-hook preexec _cmd_duration_start
+add-zsh-hook precmd  _cmd_duration_print
