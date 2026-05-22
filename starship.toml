@@ -167,7 +167,7 @@ symbol = " "
 [nodejs]
 symbol            = "󰎙"
 style             = "bold green"
-format            = "[via](text) [$symbol($version )]($style)"
+format            = "[$symbol ($version )]($style)"
 detect_files      = ["package.json", ".nvmrc", ".node-version"]
 detect_folders    = ["node_modules"]
 detect_extensions = ["js", "mjs", "cjs", "ts", "mts", "cts"]
