@@ -19,9 +19,10 @@ $git_branch$git_state$git_status$git_metrics\
 $package\
 $nodejs$bun$deno$python$rust$golang$java\
 $docker_context$kubernetes$terraform$aws$gcloud\
+$cmd_duration\
 $sudo$status$character"""
 
-right_format = """$cmd_duration"""
+right_format = ""
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -87,7 +88,7 @@ style              = "bold lavender"
 read_only          = " 󰌾"             # MD lock
 read_only_style    = "red"
 truncation_length  = 3
-truncation_symbol  = "⋯/"             # mid-line three dots
+truncation_symbol  = ""
 truncate_to_repo   = true
 home_symbol        = "~"
 format             = "[$path]($style)[$read_only]($read_only_style) "
@@ -459,10 +460,10 @@ symbol = "󰛳 "                          # MD network
 # ═══════════════════════════════════════════════════════════════════════════════
 
 [cmd_duration]
-min_time          = 2_000              # threshold in ms
-format            = "[took $duration]($style)"
+min_time          = 0 
+format            = " [$duration]($style) "
 style             = "yellow"
-show_milliseconds = false
+show_milliseconds = true
 
 [status]
 disabled              = false
