@@ -112,3 +112,12 @@ command -v corepack >/dev/null && corepack enable >/dev/null 2>&1
 # fzf key bindings: Ctrl-R (history), Ctrl-T (files), Alt-C (cd)
 source /usr/share/doc/fzf/examples/key-bindings.zsh 2>/dev/null
 source /usr/share/doc/fzf/examples/completion.zsh 2>/dev/null
+
+# -----------------------------------------------------------------------------
+# Carapace — universal completion engine (1000+ tools)
+# -----------------------------------------------------------------------------
+# Bridge completions from bash/fish/zsh-completions when carapace has no native definition
+export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense'
+# Match completion style with the rest of the setup
+zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+source <(carapace _carapace)
