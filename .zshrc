@@ -121,3 +121,27 @@ export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense'
 # Match completion style with the rest of the setup
 zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
 source <(carapace _carapace)
+
+# -----------------------------------------------------------------------------
+# package.json scripts completion
+# -----------------------------------------------------------------------------
+_pkg_scripts() {
+  [[ -f package.json ]] || return 1
+  local -a scripts
+  scripts=("${(@f)$(node -e '
+    try {
+      const s = require("./package.json").scripts || {};
+      for (const [k, v] of Object.entries(s)) {
+        console.log(k + ":" + v.replace(/:/g, "\\:"));
+      }
+    } catch (e) {}
+  ' 2>/dev/null)}")
+  [[ ${#scripts[@]} -gt 0 ]] && _describe 'script' scripts
+}
+
+# Register for all known Node package managers
+# To add a new one in the future, just append it to this list:
+for _pm in yarn npm pnpm bun; do
+  compdef _pkg_scripts $_pm
+done
+unset _pm
