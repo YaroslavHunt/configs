@@ -470,13 +470,13 @@ symbol = " "
 
 [status]
 disabled              = false
-symbol                = "✗"
+symbol                = "󰅙 "
 success_symbol        = ""
-not_executable_symbol = "🚫"
-not_found_symbol      = "🔍"
-sigint_symbol         = "🧱"
-signal_symbol         = "⚡"
-format                = '[$symbol $common_meaning$signal_name$maybe_int]($style) '
+not_executable_symbol = "󰂭 "
+not_found_symbol      = "󰍉 "
+sigint_symbol         = "󰜺 "
+signal_symbol         = "󱐋 "
+format                = '[$symbol$common_meaning$signal_name$maybe_int]($style) '
 style                 = "bold red"
 recognize_signal_code = true
 map_symbol            = true
